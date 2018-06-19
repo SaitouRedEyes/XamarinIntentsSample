@@ -1,0 +1,4 @@
+IntentsSample.MainActivity, IntentsSample;md575795b1d2cfb5de30d10e8a7a1eb0493.MainActivity
+IntentsSample.MainActivity, IntentsSample, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md575795b1d2cfb5de30d10e8a7a1eb0493.MainActivity
+IntentsSample.MainActivity;md575795b1d2cfb5de30d10e8a7a1eb0493.MainActivity
+intentssample.MainActivity;md575795b1d2cfb5de30d10e8a7a1eb0493.MainActivity
