@@ -3,6 +3,10 @@ using Android.Widget;
 using Android.OS;
 using System;
 using Android.Content;
+using Android;
+using Android.Util;
+using Android.Content.PM;
+using Android.Runtime;
 
 namespace IntentsSample
 {
@@ -22,7 +26,6 @@ namespace IntentsSample
             Button buttonMapsCoordinates = FindViewById<Button>(Resource.Id.button_maps_coordinates);
             Button buttonMapsRoutes = FindViewById<Button>(Resource.Id.button_maps_routes);
             Button buttonContacts = FindViewById<Button>(Resource.Id.button_contacts);
-            Button buttonAudio = FindViewById<Button>(Resource.Id.button_audio);
 
             buttonOpenBrowser.Click += OnButtonOpenBrowserClicked;
             buttonCall.Click += OnButtonCallClicked;
@@ -30,7 +33,6 @@ namespace IntentsSample
             buttonMapsCoordinates.Click += OnButtonMapsCoordinatesClicked;
             buttonMapsRoutes.Click += OnButtonMapsRoutesClicked;
             buttonContacts.Click += OnButtonContactsClicked;
-            buttonAudio.Click += OnButtonAudioClicked;
         }
 
         private void OnButtonOpenBrowserClicked(object sender, EventArgs e)
@@ -43,7 +45,31 @@ namespace IntentsSample
 
         private void OnButtonCallClicked(object sender, EventArgs e)
         {
-            Intent i = new Intent(Intent.ActionCall, 
+            Permission p = CheckSelfPermission(Manifest.Permission.CallPhone);
+
+            if(p.ToString().Equals(Permission.Denied.ToString()))
+            {
+                RequestPermissions(new string[] { Manifest.Permission.CallPhone }, 1);
+            }
+            else
+            {
+                CallPhone();
+            }
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            switch (requestCode)
+            {
+                case 1: if (grantResults.Length > 0 && grantResults[0] == Permission.Granted) CallPhone(); break;
+            }
+        }
+
+        private void CallPhone()
+        {
+            Intent i = new Intent(Intent.ActionCall,
                                   Android.Net.Uri.Parse("tel:34781265"));
             StartActivity(i);
         }
@@ -76,14 +102,6 @@ namespace IntentsSample
         {
             Intent i = new Intent(Intent.ActionPick, 
                                   Android.Net.Uri.Parse("content://com.android.contacts/contacts/"));
-            StartActivity(i);
-        }
-
-        private void OnButtonAudioClicked(object sender, EventArgs e)
-        {
-            Intent i = new Intent(Intent.ActionView, 
-                Android.Net.Uri.Parse("http://www.servidor.com.br/musica.mp3"));
-            Intent.SetType("audio/a*");
             StartActivity(i);
         }
     }
