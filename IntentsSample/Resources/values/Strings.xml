@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">IntentsSample</string>
+  <string name="btn_open_browser">Abrir o Navegador</string>
+  <string name="btn_call">Fazer uma ligação</string>
+  <string name="btn_maps_street">Google Maps Abrir na Rua</string>
+  <string name="btn_maps_coordinates">Google Maps Abrir na Coordenada</string>
+  <string name="btn_maps_routes">Google Maps Abrir em uma Rota</string>
+  <string name="btn_contacts">Abrir Contatos</string>
+  <string name="btn_fragments">Abrir Lista de Albuns do Nightwish</string>
 </resources>

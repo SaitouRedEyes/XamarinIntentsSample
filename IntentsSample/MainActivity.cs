@@ -4,7 +4,6 @@ using Android.OS;
 using System;
 using Android.Content;
 using Android;
-using Android.Util;
 using Android.Content.PM;
 using Android.Runtime;
 
@@ -26,6 +25,7 @@ namespace IntentsSample
             Button buttonMapsCoordinates = FindViewById<Button>(Resource.Id.button_maps_coordinates);
             Button buttonMapsRoutes = FindViewById<Button>(Resource.Id.button_maps_routes);
             Button buttonContacts = FindViewById<Button>(Resource.Id.button_contacts);
+            Button buttonFragments = FindViewById<Button>(Resource.Id.button_fragments);
 
             buttonOpenBrowser.Click += OnButtonOpenBrowserClicked;
             buttonCall.Click += OnButtonCallClicked;
@@ -33,6 +33,14 @@ namespace IntentsSample
             buttonMapsCoordinates.Click += OnButtonMapsCoordinatesClicked;
             buttonMapsRoutes.Click += OnButtonMapsRoutesClicked;
             buttonContacts.Click += OnButtonContactsClicked;
+            buttonFragments.Click += OnButtonFragmentsClicked;            
+        }
+
+        private void OnButtonFragmentsClicked(object sender, EventArgs e)
+        {            
+            Intent i = new Intent(this, typeof(DiscographyActivity));
+
+            StartActivity(i);
         }
 
         private void OnButtonOpenBrowserClicked(object sender, EventArgs e)

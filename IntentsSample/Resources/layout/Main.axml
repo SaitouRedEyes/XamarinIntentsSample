@@ -7,30 +7,35 @@
         android:id="@+id/button_open_browser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Open Browser" />
+        android:text="@string/btn_open_browser" />
     <Button
         android:id="@+id/button_call"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Make a Call" />
+        android:text="@string/btn_call" />
     <Button
         android:id="@+id/button_maps_street"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Google Maps Open Street" />
+        android:text="@string/btn_maps_street" />
     <Button
         android:id="@+id/button_maps_coordinates"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Google Maps Open Coordinates" />
+        android:text="@string/btn_maps_coordinates" />
     <Button
         android:id="@+id/button_maps_routes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Google Maps Open Routes" />
+        android:text="@string/btn_maps_routes" />
     <Button
         android:id="@+id/button_contacts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Open Contacts" />
+        android:text="@string/btn_contacts" />
+    <Button
+        android:id="@+id/button_fragments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_fragments" />
 </LinearLayout>
